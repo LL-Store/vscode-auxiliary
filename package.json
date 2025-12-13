@@ -1,0 +1,80 @@
+{
+  "name": "vscode-auxiliary",
+  "displayName": "Auxiliary",
+  "description": "一个用于辅助日常工作的vscode扩展插件",
+  "version": "0.1.0-dev",
+  "scripts": {
+    "install": "node ./scripts/install.js",
+    "vscode:prepublish": "node ./scripts/build.js",
+    "dev": "node ./scripts/dev.js",
+    "build": "vsce package"
+  },
+  "publisher": "zxl20070701",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "images/logo.png",
+  "activationEvents": [],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-auxiliary.appStore",
+        "title": "%vscode-auxiliary.appStore%",
+        "icon": {
+          "light": "images/logo.png",
+          "dark": "images/logo.png"
+        }
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "vscode-auxiliary.appStore",
+          "when": "view==vscode-auxiliary.entry",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "Helper",
+          "title": "%vscode-auxiliary.title%",
+          "icon": "images/logo.png"
+        }
+      ]
+    },
+    "views": {
+      "Helper": [
+        {
+          "id": "vscode-auxiliary.entry",
+          "type": "webview",
+          "name": "%vscode-auxiliary.welcome%"
+        }
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LL-Store/vscode-auxiliary.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "zxl20070701"
+  },
+  "devDependencies": {
+    "@types/node": "20.x",
+    "@types/vscode": "^1.89.0"
+  },
+  "dependencies": {
+    "@oipage/stylecss": "^1.1.0",
+    "oipage": "^1.5.0",
+    "vislite": "^1.2.1",
+    "xhtml-to-json": "^0.1.0",
+    "zipaper": "^0.2.0"
+  }
+}
